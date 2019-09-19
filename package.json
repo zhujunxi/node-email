@@ -1,0 +1,28 @@
+{
+  "name": "node-email",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhujunxi/node-email.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhujunxi/node-email/issues"
+  },
+  "homepage": "https://github.com/zhujunxi/node-email#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "moment": "^2.24.0",
+    "qs": "^6.8.0",
+    "superagent": "^5.1.0"
+  }
+}
