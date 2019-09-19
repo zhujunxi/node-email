@@ -1,31 +1,18 @@
-const superagent = require("superagent");
-const cheerio = require("cheerio");
-const axios = require("axios");
-const qs = require("qs")
-// const moment = require("moment");
+const schedule = require('node-schedule');
 
-// 引入聚合数据(juhe.cn)的免费API
-const config = {
-    url: "http://apis.juhe.cn/simpleWeather/query",
-    city: "深圳",
-    key: "a642a2dbdc46e629058fd4e8f4e006a0"
-}
-function getWeatherInfo() {
-    return new Promise(function (resolve, reject) {
-        axios({
-            method: "get",
-            url: config.url + "?" + qs.stringify({
-                city: config.city,
-                key: config.key
-            })
-        }).then(function (res) {
-            resolve(res.data.result)
-        }).catch(function (err) {
-            reject(err)
-        })
+const getWeather = require("./js/getWeather")
+const generateHtml = require("./js/generateHtml")
+const sendMail = require("./js/sendMail")
+
+var rule = new schedule.RecurrenceRule();
+rule.dayOfWeek = [0, new schedule.Range(0, 6)];
+rule.hour = 17;
+rule.minute = 30;
+
+console.log('NodeMail: 开始等待目标时刻...')
+let j = schedule.scheduleJob(rule, function () {
+    console.log("执行任务");
+    getWeather().then(res => {
+        sendMail(generateHtml(res))
     })
-}
-
-getWeatherInfo().then(res => {
-    console.log(res);
 })
