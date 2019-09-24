@@ -6,8 +6,8 @@ const sendMail = require("./js/sendMail")
 
 var rule = new schedule.RecurrenceRule();
 rule.dayOfWeek = [0, new schedule.Range(0, 6)];
-rule.hour = 17;
-rule.minute = 30;
+rule.hour = 16;
+rule.minute = 02;
 
 console.log('NodeMail: 开始等待目标时刻...')
 let j = schedule.scheduleJob(rule, function () {

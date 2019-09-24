@@ -9,7 +9,7 @@ const config = {
 }
 
 module.exports = function demo() {
-    return new Promise(function (resolve, rejext) {
+    return new Promise(function (resolve, reject) {
         axios({
             method: "get",
             url: config.url + "?" + qs.stringify({

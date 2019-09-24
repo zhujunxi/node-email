@@ -6,7 +6,7 @@ const config = {
     //接收者邮箱地
     EmailTo: "xingxiapple@vip.qq.com",
     //邮件主题
-    EmailSubject: "一封暖暖的小邮件",
+    EmailSubject: "一封测试的邮件",
 }
 module.exports = function sendMail(html) {
     const { EmailFrom, EmailTo, EmailSubject } = config
@@ -18,7 +18,7 @@ module.exports = function sendMail(html) {
         secure: true, // secure:true for port 465, secure:false for port 587
         auth: {
             user: '531578783@qq.com',
-            pass: '19911224mama' // QQ邮箱需要使用授权码
+            pass: 'zrfyqpqkqjkdbhhf' // QQ邮箱需要使用授权码
         }
     });
 
@@ -33,6 +33,6 @@ module.exports = function sendMail(html) {
         //     sendMail(html); //再次发送
         // }
         console.log("邮件发送成功", info.messageId);
-        console.err("静等下一次发送");
+        console.log("静等下一次发送");
     });
 }
